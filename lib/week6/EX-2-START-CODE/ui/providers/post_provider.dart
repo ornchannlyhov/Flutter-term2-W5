@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:observer/week6/EX-2-START-CODE/model/post.dart';
-import 'package:observer/week6/EX-2-START-CODE/repository/mock_post_repository.dart';
+import 'package:observer/week6/EX-2-START-CODE/repository/http_post_repository.dart';
+// import 'package:observer/week6/EX-2-START-CODE/repository/mock_post_repository.dart';
 import 'package:observer/week6/EX-2-START-CODE/repository/post_repository.dart';
 import 'async_value.dart';
 
 class PostProvider extends ChangeNotifier {
-  final PostRepository _repository = MockPostRepository();
+  // final PostRepository _repository = MockPostRepository();
+  final PostRepository _repository = HttpPostRepository();
 
   AsyncValue<List<Post>>? postsValue;
 
