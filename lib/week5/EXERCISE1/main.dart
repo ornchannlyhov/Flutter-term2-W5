@@ -1,6 +1,6 @@
-import 'package:observer/EXERCISE1/console_logger.dart';
-import 'package:observer/EXERCISE1/ride_preferences_service.dart';
-import 'package:observer/EXERCISE1/ride_pref.dart';
+import 'package:observer/week5/EXERCISE1/console_logger.dart';
+import 'package:observer/week5/EXERCISE1/ride_preferences_service.dart';
+import 'package:observer/week5/EXERCISE1/ride_pref.dart';
 
 void main() {
   final service = RidePreferencesService();

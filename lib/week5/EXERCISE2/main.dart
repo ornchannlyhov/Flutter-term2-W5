@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:observer/EXERCISE2/color_counters.dart';
-import 'package:observer/EXERCISE2/screens/statistics_screen.dart';
-import 'package:observer/EXERCISE2/screens/taps_screen.dart';
+import 'package:observer/week5/EXERCISE2/color_counters.dart';
+import 'package:observer/week5/EXERCISE2/screens/statistics_screen.dart';
+import 'package:observer/week5/EXERCISE2/screens/taps_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
