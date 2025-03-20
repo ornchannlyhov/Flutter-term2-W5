@@ -1,5 +1,3 @@
-// lib/screens/post_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:observer/week6/EX-2-START-CODE/model/post.dart';
 import 'package:provider/provider.dart';
