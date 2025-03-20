@@ -1,7 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+// lib/screens/post_screen.dart
 
-import '../../model/post.dart';
+import 'package:flutter/material.dart';
+import 'package:observer/week6/EX-2-START-CODE/model/post.dart';
+import 'package:provider/provider.dart';
 import '../providers/async_value.dart';
 import '../providers/post_provider.dart';
 
@@ -15,10 +16,11 @@ class PostScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Posts'),
         actions: [
           IconButton(
             // 2- Fetch the post
-            onPressed: () => {postProvider.fetchPost(45)},
+            onPressed: () => {postProvider.fetchPosts()},
             icon: const Icon(Icons.update),
           ),
         ],
@@ -29,22 +31,32 @@ class PostScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildBody(PostProvider courseProvider) {
-    final postValue = courseProvider.postValue;
+  Widget _buildBody(PostProvider postProvider) {
+    final postsValue = postProvider.postsValue;
 
-    if (postValue == null) {
-      return Text('Tap refresh to display post'); // display an empty state
+    if (postsValue == null) {
+      return const Text('Tap refresh to display posts'); // display an empty state
     }
 
-    switch (postValue.state) {
+    switch (postsValue.state) {
       case AsyncValueState.loading:
-        return CircularProgressIndicator(); // display a progress
+        return const CircularProgressIndicator(); // display a progress
 
       case AsyncValueState.error:
-        return Text('Error: ${postValue.error}'); // display a error
+        return Text('Error: ${postsValue.error}'); // display a error
 
       case AsyncValueState.success:
-        return PostCard(post: postValue.data!); // display the post
+        final posts = postsValue.data!;
+        if (posts.isEmpty) {
+          return const Text('No posts available.');
+        } else {
+          return ListView.builder(
+            itemCount: posts.length,
+            itemBuilder: (context, index) {
+              return PostCard(post: posts[index]);
+            },
+          );
+        }
     }
   }
 }
